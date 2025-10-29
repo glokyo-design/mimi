@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mimi-N' You</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Quicksand:wght@400;500&display=swap');
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Quicksand', sans-serif;
+  background: linear-gradient(135deg, #fbe4d8, #f6c1a4, #fce4e1);
+  background-size: cover;
+  overflow: hidden;
+  color: #4a2c2a;
+  text-align: center;
+  min-height: 100vh;
+  cursor: none; /* hide default cursor */
+}
+
+h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 3rem;
+  margin-top: 3rem;
+  animation: fadeIn 2s ease forwards;
+}
+
+p.subtitle {
+  font-size: 1.2rem;
+  margin-bottom: 3rem;
+  animation: fadeIn 3s ease forwards;
+}
+
+.tracks {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 4rem;
+}
+
+button.track {
+  background: linear-gradient(145deg, #ff9aa2, #ffb7b2);
+  border: none;
+  border-radius: 50px;
+  padding: 0.9rem 2.5rem;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: white;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 15px rgba(0,0,0,0.2), 0 0 10px rgba(255, 182, 193, 0.5);
+  text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+  backdrop-filter: blur(5px);
+  cursor: none; /* hide pointer when hovering track */
+}
+
+button.track:hover {
+  background: linear-gradient(145deg, #ffb7b2, #ff9aa2);
+  transform: scale(1.1) rotate(-2deg);
+  box-shadow: 0 12px 20px rgba(0,0,0,0.25), 0 0 20px rgba(255, 182, 193, 0.7);
+}
+
+/* Sent message style */
+.message-container {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  display: flex;
+  align-items: flex-end;
+  gap: 10px;
+  max-width: 80%;
+}
+
+.message-box {
+  background: rgba(173, 216, 230, 0.8);
+  color: #000;
+  border-radius: 20px;
+  padding: 1rem 1.2rem;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  animation: fadeIn 2s ease forwards;
+  text-align: left;
+}
+
+.message-container img.profile {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  align-self: flex-end;
+  object-fit: cover;
+}
+
+/* White heart cursor */
+#heart-cursor {
+  position: fixed;
+  pointer-events: none;
+  font-size: 28px;
+  transform: translate(-50%, -50%);
+  color: white;
+  z-index: 10000;
+  transition: transform 0.1s ease;
+}
+
+.trail-heart {
+  position: fixed;
+  pointer-events: none;
+  font-size: 16px;
+  color: white;
+  animation: trail 0.8s forwards;
+  z-index: 9999;
+}
+
+@keyframes trail {
+  0% { transform: translate(0,0) scale(1); opacity: 1; }
+  100% { transform: translate(0,-20px) scale(0.5); opacity: 0; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+</style>
+</head>
+
+<body>
+<h1>Mimi-N' You</h1>
+<p class="subtitle">These are pieces of my heart, turned into sound</p>
+
+<div class="tracks">
+  <button class="track" onclick="window.open('https://untitled.stream/library/project/6xCPk71Bf965nmvW4V5Dy', '_blank')">Mimi</button>
+  <button class="track" onclick="window.open('https://untitled.stream/library/project/7uKq56DKunIEj8b9PJHws', '_blank')">It Get's Better</button>
+  <button class="track" onclick="window.open('https://untitled.stream/library/project/YLZQh1Jm8NMDy93Rj2Rgy', '_blank')">Still Think About You</button>
+  <button class="track" onclick="window.open('https://untitled.stream/library/project/urgo3FwMjpl5yZkSkUHEA', '_blank')">I Keep In My House</button>
+  <button class="track" onclick="window.open('https://untitled.stream/library/project/aA7IsNEF2YeIvv6DWkGjm', '_blank')">Whatever You Feen</button>
+  <button class="track" onclick="window.open('https://untitled.stream/library/project/ILBOKa2k2dkRiInGuQueQ', '_blank')">As A Souvenir</button>
+</div>
+
+<div class="message-container">
+  <img class="profile" src="https://media.discordapp.net/attachments/1178536760037363772/1432219689882226698/image.jpg?ex=69023c47&is=6900eac7&hm=efdfe62f7bcdb1323d77d16e1b1cdf6cc3d685c79fe7744aaa699767d180312a&=&format=webp&width=756&height=1008" alt="Profile">
+  <div class="message-box">
+    Ever since we met, you’ve brought nothing but joy into my life, even when I’m hit with waves of uncertainty. Those waves aren’t about you; they’re about me wondering if I’m truly the man you deserve. But even in this short time, you’ve shown me what it means to genuinely care for someone who isn’t family by blood, and you’ve helped me see the kind of life I want to build for myself, for you, and for the world we create together. I love you more than words could ever say. - From your <b>Josi</b> 💕
+  </div>
+</div>
+
+<!-- Audio -->
+<audio id="track1" src="https://untitled.stream/library/project/6xCPk71Bf965nmvW4V5Dy"></audio>
+<audio id="track2" src="https://untitled.stream/library/project/7uKq56DKunIEj8b9PJHws"></audio>
+<audio id="track3" src="https://untitled.stream/library/project/YLZQh1Jm8NMDy93Rj2Rgy"></audio>
+<audio id="track4" src="https://untitled.stream/library/project/urgo3FwMjpl5yZkSkUHEA"></audio>
+<audio id="track5" src="https://untitled.stream/library/project/aA7IsNEF2YeIvv6DWkGjm"></audio>
+<audio id="track6" src="https://untitled.stream/library/project/ILBOKa2k2dkRiInGuQueQ"></audio>
+
+<!-- Custom cursor -->
+<div id="heart-cursor">🤍</div>
+
+<script>
+// Play music
+function playSong(id) {
+  document.querySelectorAll('audio').forEach(a => a.pause());
+  const song = document.getElementById(id);
+  song.currentTime = 0;
+  song.play();
+}
+
+// White heart cursor
+const heartCursor = document.getElementById("heart-cursor");
+document.addEventListener("mousemove", (e) => {
+  heartCursor.style.left = e.clientX + "px";
+  heartCursor.style.top = e.clientY + "px";
+
+  if (Math.random() < 0.2) {
+    const trail = document.createElement("div");
+    trail.className = "trail-heart";
+    trail.innerText = "🤍";
+    trail.style.left = e.clientX + "px";
+    trail.style.top = e.clientY + "px";
+    document.body.appendChild(trail);
+    setTimeout(() => trail.remove(), 800);
+  }
+});
+
+document.addEventListener("mousedown", () => heartCursor.style.transform = "translate(-50%, -50%) scale(1.6)");
+document.addEventListener("mouseup", () => heartCursor.style.transform = "translate(-50%, -50%) scale(1)");
+
+// White heart on track hover
+const tracks = document.querySelectorAll('.track');
+tracks.forEach(track => {
+  track.addEventListener('mouseenter', () => heartCursor.innerText = '🤍');
+  track.addEventListener('mouseleave', () => heartCursor.innerText = '🤍');
+});
+</script>
+</body>
+</html>

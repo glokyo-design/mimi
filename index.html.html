@@ -72,6 +72,7 @@ button.track:hover {
   align-items: flex-end;
   gap: 10px;
   max-width: 80%;
+  z-index: 10;
 }
 
 .message-box {
@@ -124,6 +125,38 @@ button.track:hover {
   from { opacity: 0; transform: translateY(10px); }
   to { opacity: 1; transform: translateY(0); }
 }
+
+/* ✅ MOBILE FIX: prevents message box from covering track buttons */
+@media (max-width: 768px) {
+  body {
+    overflow-y: auto; /* allow scrolling */
+    cursor: auto; /* show normal cursor on mobile */
+  }
+
+  .message-container {
+    position: relative;
+    bottom: auto;
+    left: 50%;
+    transform: translateX(-50%);
+    flex-direction: column;
+    align-items: center;
+    max-width: 90%;
+    margin: 1rem auto;
+  }
+
+  .message-box {
+    width: 100%;
+    text-align: center;
+  }
+
+  .message-container img.profile {
+    display: none; /* optional: hide profile image on phones */
+  }
+
+  #heart-cursor {
+    display: none; /* hide custom cursor on mobile */
+  }
+}
 </style>
 </head>
 
@@ -138,10 +171,11 @@ button.track:hover {
   <button class="track" onclick="window.open('https://untitled.stream/library/project/urgo3FwMjpl5yZkSkUHEA', '_blank')">I Keep In My House</button>
   <button class="track" onclick="window.open('https://untitled.stream/library/project/aA7IsNEF2YeIvv6DWkGjm', '_blank')">Whatever You Feen</button>
   <button class="track" onclick="window.open('https://untitled.stream/library/project/ILBOKa2k2dkRiInGuQueQ', '_blank')">As A Souvenir</button>
+  <button class="track" onclick="window.open('https://untitled.stream/library/project/etOCRffe7fNffdw2ij6kD', '_blank')">💌</button>
 </div>
 
 <div class="message-container">
-  <img class="profile" src="https://media.discordapp.net/attachments/1178536760037363772/1432219689882226698/image.jpg?ex=69023c47&is=6900eac7&hm=efdfe62f7bcdb1323d77d16e1b1cdf6cc3d685c79fe7744aaa699767d180312a&=&format=webp&width=756&height=1008" alt="Profile">
+  <img class="profile" src="https://media.discordapp.net/attachments/1429293101528125520/1433510888844824606/image.jpg?ex=690c34cd&is=690ae34d&hm=943c4b834bdff7e45df399913424db96c1886b35d06ae6be75d2156327e8edcf&=&format=webp&width=563&height=1001" alt="Profile">
   <div class="message-box">
     Ever since we met, you’ve brought nothing but joy into my life, even when I’m hit with waves of uncertainty. Those waves aren’t about you; they’re about me wondering if I’m truly the man you deserve. But even in this short time, you’ve shown me what it means to genuinely care for someone who isn’t family by blood, and you’ve helped me see the kind of life I want to build for myself, for you, and for the world we create together. I love you more than words could ever say. - From your <b>Josi</b> 💕
   </div>
@@ -154,6 +188,8 @@ button.track:hover {
 <audio id="track4" src="https://untitled.stream/library/project/urgo3FwMjpl5yZkSkUHEA"></audio>
 <audio id="track5" src="https://untitled.stream/library/project/aA7IsNEF2YeIvv6DWkGjm"></audio>
 <audio id="track6" src="https://untitled.stream/library/project/ILBOKa2k2dkRiInGuQueQ"></audio>
+<audio id="track7" src="https://untitled.stream/library/project/etOCRffe7fNffdw2ij6kD"></audio>
+
 
 <!-- Custom cursor -->
 <div id="heart-cursor">🤍</div>
@@ -196,3 +232,5 @@ tracks.forEach(track => {
 </script>
 </body>
 </html>
+</html>
+
